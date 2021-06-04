@@ -8,16 +8,10 @@ const orderRouter = require("./routes/orderRouter");
 const storeRouter = require("./routes/storeRouter");
 const app = express();
 
-// db connect
-// console.log(process.env.MONGODB_URI);
-// mongoose.connect(
-//   process.env.MONGODB_URI ||
-//     "mongodb+srv://ali1:vl4mY1oSLNqojuZd@cluster0.rfya4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-// );
-
+//DB connection
 mongoose.connect(
-  "mongodb+srv://ali1:vl4mY1oSLNqojuZd@cluster0.rfya4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  process.env.MONGODB_URI ||
+    "mongodb+srv://ali1:vl4mY1oSLNqojuZd@cluster0.rfya4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 );
 

@@ -58,7 +58,7 @@ userRouter.post(
       name: body.name,
       email: body.email,
       //   new Added
-      age: body.age,
+      // age: body.age,
       isMember: true,
       password: bcrypt.hashSync(body.password, 8),
     });
