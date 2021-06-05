@@ -4,8 +4,9 @@ const ShoppingCart = require("../models/shoppingCartModel");
 const Store = require("../models/storeModel");
 
 const shoppingCart1 = new ShoppingCart();
-const shoppingCart2 = new ShoppingCart();
-const ShoppingBasket1 = new ShoppingBasket();
+// const shoppingCart2 = new ShoppingCart();
+// const ShoppingBasket1 = new ShoppingBasket();
+const storeA = new Store();
 
 const data = {
   baskets: [],
@@ -55,7 +56,7 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: "high quality product",
-      store: "60babdecf1adaa3594c3c1df",
+      store: storeA,
     },
     // {
     //   name: "Adidas Fit Shirt",

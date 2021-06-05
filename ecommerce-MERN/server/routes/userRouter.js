@@ -1,15 +1,16 @@
 const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
-const User = require("../models/userModel");
 const data = require("../seeds/seed");
 const { generateToken, isAuth } = require("../utils/util");
+const User = require("../models/userModel");
 const Store = require("../models/storeModel");
 const Product = require("../models/productModel");
 const userRouter = express.Router();
 
 //https://www.npmjs.com/package/express-async-handler/v/1.1.4
 // if error, it will be passed to error handler defined in server.js
+
 userRouter.get(
   "/seed",
   expressAsyncHandler(async (req, res) => {
@@ -135,10 +136,11 @@ userRouter.get(
 userRouter.post(
   "/getUserCart",
   expressAsyncHandler(async (req, res) => {
-    console.log(req.body.user);
-    const usercart = User.findById(req.body.user);
+    console.log(req.body.id);
+    // const usercart = User.findOne();
+    console.log(usercart);
     // console.log(usercart);
-    res.send({ usercart });
+    res.send({});
   })
 );
 
