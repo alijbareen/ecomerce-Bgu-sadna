@@ -5,7 +5,13 @@ const storeSchema = new mongoose.Schema(
   {
     name: {
       type: String,
+      unique: true,
       required: "Name is required",
+    },
+    isActive: {
+      type: Boolean,
+      required: "isActive is required",
+      default: true,
     },
     managers: [
       {

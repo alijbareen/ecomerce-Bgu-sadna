@@ -1,6 +1,7 @@
 const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
 const Product = require("../models/productModel");
+const Store = require("../models/storeModel");
 const data = require("../seeds/seed");
 const productRouter = express.Router();
 
@@ -11,7 +12,10 @@ productRouter.get(
   expressAsyncHandler(async (req, res) => {
     // remove data before inserting. it will remove all data... be cautious to use it
     // await Product.deleteMany({});
+
+    await Product.deleteMany({});
     const createdProducts = await Product.insertMany(data.products);
+
     res.send({ createdProducts });
   })
 );

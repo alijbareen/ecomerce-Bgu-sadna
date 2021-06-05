@@ -17,13 +17,13 @@ storeRouter.get(
 
     await Store.deleteMany({});
 
-    const user = await User.findOne({ email: "a@a.com" });
+    const user = await User.findOne();
     const store1 = new Store({
       name: "Nike",
       owners: [user],
     });
 
-    const user2 = await User.findOne({ email: "b@b.com" });
+    const user2 = await User.findOne();
     const store2 = new Store({
       name: "Adidas",
       owners: [user2, user],

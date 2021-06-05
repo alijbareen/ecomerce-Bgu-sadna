@@ -1,8 +1,10 @@
 const bcrypt = require("bcryptjs");
 const ShoppingBasket = require("../models/shoppingBasketModel");
 const ShoppingCart = require("../models/shoppingCartModel");
+const Store = require("../models/storeModel");
 
 const shoppingCart1 = new ShoppingCart();
+const shoppingCart2 = new ShoppingCart();
 const ShoppingBasket1 = new ShoppingBasket();
 
 const data = {
@@ -10,7 +12,7 @@ const data = {
   carts: [],
   users: [
     {
-      name: "a",
+      name: "adidasowner",
       email: "adidas@a.com",
       password: bcrypt.hashSync("a", 8),
       isAdmin: false,
@@ -18,9 +20,10 @@ const data = {
       isManager: false,
       isMember: true,
       age: 18,
+      cart: shoppingCart1,
     },
     {
-      name: "b",
+      name: "nikeowner",
       email: "nike@b.com",
       password: bcrypt.hashSync("b", 8),
       isAdmin: false,
@@ -28,7 +31,7 @@ const data = {
       isManager: false,
       isMember: true,
       age: 15,
-      cart: shoppingCart1,
+      cart: shoppingCart2,
     },
     {
       name: "c",
@@ -52,6 +55,7 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: "high quality product",
+      store: "60babdecf1adaa3594c3c1df",
     },
     {
       name: "Adidas Fit Shirt",
@@ -63,6 +67,7 @@ const data = {
       rating: 4.0,
       numReviews: 10,
       description: "high quality product",
+      store: "60babdecf1adaa3594c3c1df",
     },
     {
       name: "Lacoste Free Shirt",
@@ -74,6 +79,7 @@ const data = {
       rating: 4.8,
       numReviews: 17,
       description: "high quality product",
+      store: "60babdecf1adaa3594c3c1df",
     },
     {
       name: "Nike Slim Pant",
@@ -85,6 +91,7 @@ const data = {
       rating: 4.5,
       numReviews: 14,
       description: "high quality product",
+      store: "60babdecf1adaa3594c3c1df",
     },
     {
       name: "Puma Slim Pant",
@@ -96,6 +103,7 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: "high quality product",
+      store: "60babdecf1adaa3594c3c1df",
     },
     {
       name: "Adidas Fit Pant",
@@ -107,6 +115,7 @@ const data = {
       rating: 4.5,
       numReviews: 15,
       description: "high quality product",
+      store: "60babdecf1adaa3594c3c1df",
     },
   ],
   stores: [

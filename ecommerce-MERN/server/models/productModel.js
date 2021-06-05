@@ -5,7 +5,6 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: "Name is required",
-      unique: true,
     },
     image: {
       type: String,
@@ -39,6 +38,11 @@ const productSchema = new mongoose.Schema(
     description: {
       type: String,
       required: "Description is required",
+    },
+    store: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Store",
+      required: true,
     },
   },
   {
