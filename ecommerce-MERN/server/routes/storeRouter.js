@@ -100,6 +100,7 @@ storeRouter.post(
 
     //check if Member is already registered
     const user = await User.findById(req.body.user);
+
     const store = await Store.findById(req.body.store);
 
     // checkIfOwnerorManager(req.body.user, req.body.store);
@@ -111,22 +112,18 @@ storeRouter.post(
       price: req.body.price,
       countInStock: req.body.countInStock,
       brand: req.body.brand,
-      rating: req.body.rating,
-      numReviews: req.body.numReviews,
+      rating: 0,
+      numReviews: 0,
       description: req.body.description,
     });
+
     console.log(product);
     // save new store in db
     const createdProduct = await Product.insertMany([product]);
+
     // person.friends.push(friend);
     // person.save(done);
-    Store.findById(req.body.store, function (err, doc) {
-      if (err) {
-      }
-      doc.products = [...products, createdProduct];
-      doc.save(res.send);
-    });
-
+    store.products = [...store.products, createdProduct];
     // send user obj back
     res.send({
       result: "OK",
