@@ -5,6 +5,7 @@ const User = require("../models/userModel");
 const data = require("../seeds/seed");
 const { generateToken, isAuth } = require("../utils/util");
 const Store = require("../models/storeModel");
+const Product = require("../models/productModel");
 const userRouter = express.Router();
 
 //https://www.npmjs.com/package/express-async-handler/v/1.1.4
@@ -131,10 +132,13 @@ userRouter.get(
   })
 );
 
-userRouter.get(
-  "/getCart",
+userRouter.post(
+  "/getUserCart",
   expressAsyncHandler(async (req, res) => {
-    res.send({});
+    console.log(req.body.user);
+    const usercart = User.findById(req.body.user);
+    // console.log(usercart);
+    res.send({ usercart });
   })
 );
 
@@ -146,26 +150,19 @@ userRouter.get(
 );
 
 userRouter.get(
-  "/getAllProducts",
-  expressAsyncHandler(async (req, res) => {
-    res.send({});
-  })
-);
-
-userRouter.get(
   "/getAllStores",
   expressAsyncHandler(async (req, res) => {
-    res.send({});
+    const stores = await Store.find({});
+    res.send({ stores });
   })
 );
 
-userRouter.get(
+userRouter.post(
   "/getmyStores",
   expressAsyncHandler(async (req, res) => {
-    //check permissions
-    //remove user from store
-    //return ok
-    res.send({});
+    // give the id of the user in find
+    const stores = await Store.find({});
+    res.send({ stores });
   })
 );
 

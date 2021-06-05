@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const ShoppingCart = require("./shoppingCartModel");
 
 const userSchema = new mongoose.Schema(
   {
@@ -15,6 +14,11 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: "Password is required",
+    },
+    cart: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ShoppingCart",
+      required: false,
     },
     isMember: {
       type: Boolean,
@@ -35,11 +39,6 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
       default: false,
-    },
-    cart: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: ShoppingCart,
-      required: false,
     },
     age: {
       type: Number,

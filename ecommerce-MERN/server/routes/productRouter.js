@@ -4,6 +4,7 @@ const Product = require("../models/productModel");
 const Store = require("../models/storeModel");
 const data = require("../seeds/seed");
 const productRouter = express.Router();
+const User = require("../models/userModel");
 
 //https://www.npmjs.com/package/express-async-handler/v/1.1.4
 // if error, it will be passed to error handler defined in server.js
