@@ -7,13 +7,14 @@ const ShoppingBasketSchema = new mongoose.Schema(
     store: {
       type: mongoose.Schema.Types.ObjectId,
       ref: Store,
-      required: true,
+      // required: true,
     },
     products: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product",
         required: true,
+        default: [],
       },
     ],
   },

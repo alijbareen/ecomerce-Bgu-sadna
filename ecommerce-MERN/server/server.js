@@ -6,6 +6,7 @@ const userRouter = require("./routes/userRouter");
 const productRouter = require("./routes/productRouter");
 const orderRouter = require("./routes/orderRouter");
 const storeRouter = require("./routes/storeRouter");
+const serviceRouter = require("./routes/serviceRouter");
 const app = express();
 
 //DB connection
@@ -26,6 +27,7 @@ app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/store", storeRouter);
+app.use("/api/service", serviceRouter);
 
 // //Paypal client ID from .env file. send back to front end
 // app.get("/api/config/paypal", (req, res) => {

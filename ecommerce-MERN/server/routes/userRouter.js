@@ -136,9 +136,9 @@ userRouter.get(
 userRouter.post(
   "/getUserCart",
   expressAsyncHandler(async (req, res) => {
-    console.log(req.body.id);
-    // const usercart = User.findOne();
-    console.log(usercart);
+    console.log(req.body.user);
+    const usercart = User.findOne();
+    // console.log(usercart);
     // console.log(usercart);
     res.send({});
   })
